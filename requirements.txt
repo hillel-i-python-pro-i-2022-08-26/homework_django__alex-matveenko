@@ -1,0 +1,7 @@
+# Istall for wsgi
+django==4.1.1
+# Istall for check code
+black==22.8.0
+flake8==5.0.4
+pyupgrade==2.38.2
+pre-commit==2.20.0
