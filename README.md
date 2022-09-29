@@ -2,6 +2,8 @@
 
 ***
 
+[![Main workflow](https://github.com/hillel-i-python-pro-i-2022-08-26/homework_django__alex-matveenko/actions/workflows/main-workflow.yml/badge.svg)](https://github.com/hillel-i-python-pro-i-2022-08-26/homework_django__alex-matveenko/actions/workflows/main-workflow.yml)
+
 ### Django project
 
 #### Include app:
