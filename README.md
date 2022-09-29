@@ -14,7 +14,7 @@
 
 * `make homework-i-run` - *start project*
 * `make init-dev` - *install requirements*
-* `pre-commit-run-all` - *run pre-commit tool for all files*
+* `make pre-commit-run-all` - *run pre-commit tool for all files*
 
 ### Main routes:
 
