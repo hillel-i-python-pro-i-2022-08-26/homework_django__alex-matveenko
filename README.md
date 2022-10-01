@@ -9,6 +9,8 @@
 #### Include app:
 
 * **Greetings**
+* **Base**
+* **users_generator**
 
 ### Main commands:
 
