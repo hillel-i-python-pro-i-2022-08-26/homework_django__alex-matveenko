@@ -5,4 +5,4 @@ fake = Faker()
 
 # Generate name of user
 def generate_name() -> str:
-    return str(fake.first_name())
+    return fake.first_name()
