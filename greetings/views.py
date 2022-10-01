@@ -1,4 +1,5 @@
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render
 
 from core.services.generate_name import generate_name
 
@@ -6,4 +7,11 @@ from core.services.generate_name import generate_name
 def greetings(request: HttpRequest, name: str | None = None) -> HttpResponse:
     if name is None:
         name = generate_name()
-    return HttpResponse(f'Hello, {name.title()}!')
+    return render(
+        request,
+        "greetings/index.html",
+        {
+            "title": "Greetings",
+            "name": name.title(),
+        },
+    )
