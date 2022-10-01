@@ -10,9 +10,9 @@ fake = Faker()
 def generate_names(amount: int) -> list[str]:
     name_list: list[str] = []
     for name in range(amount):
-        name = fake.first_name().lower() + "_" + str(randint(1970, 2022))
+        name = f"{fake.first_name().lower()}_{str(randint(1970, 2022))}"
         if name in name_list:
-            continue
+            name = f"{'_'.join(fake.first_name().lower())}_{str(randint(1, 1000))}"
         name_list.append(name)
     return name_list
 
@@ -22,7 +22,7 @@ def generate_emails(amount: int) -> list[str]:
     for email in range(amount):
         email = fake.email()
         if email in email_list:
-            continue
+            email = f"{fake.first_name().lower()}{randint(1, 1000)}@gmail.com"
         email_list.append(email)
     return email_list
 
@@ -32,7 +32,7 @@ def generate_passwords(amount: int) -> list[str]:
     for password in range(amount):
         password = fake.password()
         if password in password_list:
-            continue
+            password = fake.password().reverse()
         password_list.append(password)
     return password_list
 
