@@ -18,12 +18,16 @@
 
 ### Main routes:
 
-**Link greetings**
+**Link "Home"**
 
-* `/` - *home page with greetings for random name*
-* `/(some name)` - *greetings for some name*
+* `/` - *home page*
 
-**Link users**
+**Link "Greetings"**
+
+* `/greetings/` - *home page with greetings for random name*
+* `/greetings/(some name)` - *greetings for some name*
+
+**Link "Users"**
 
 * `/users/` - *view random users with name, email and password, by default 10 users*
 * `/users/?amount=(some integer)` - *view random user info by the specified value*

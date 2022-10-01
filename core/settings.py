@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "greetings.apps.GreetingsConfig",
     "users_generator.apps.UsersGeneratorConfig",
+    "base.apps.BaseConfig",
 ]
 
 MIDDLEWARE = [

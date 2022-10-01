@@ -1,3 +1,5 @@
+from random import randint
+
 from faker import Faker
 
 from users_generator.models import UserInfo
@@ -8,7 +10,7 @@ fake = Faker()
 def generate_names(amount: int) -> list[str]:
     name_list: list[str] = []
     for name in range(amount):
-        name = fake.name()
+        name = fake.first_name().lower() + "_" + str(randint(1970, 2022))
         if name in name_list:
             continue
         name_list.append(name)
