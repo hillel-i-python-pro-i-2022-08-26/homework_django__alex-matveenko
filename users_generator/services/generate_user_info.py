@@ -42,5 +42,5 @@ def organize_info(amount: int) -> UserInfo:
     emails = generate_emails(amount=amount)
     passwords = generate_passwords(amount=amount)
 
-    for i in range(amount):
-        yield UserInfo(name=names[i], email=emails[i], password=passwords[i])
+    for name, email, password in zip(names, emails, passwords):
+        yield UserInfo(name=name, email=email, password=password)
