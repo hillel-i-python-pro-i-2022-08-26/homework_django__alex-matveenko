@@ -3,7 +3,7 @@ from django.shortcuts import render
 from webargs import fields
 from webargs.djangoparser import use_args
 
-from core.services.generate_user_info import organize_info
+from users_generator.services.generate_user_info import organize_info
 
 
 @use_args({"amount": fields.Int(missing=10)}, location="query")

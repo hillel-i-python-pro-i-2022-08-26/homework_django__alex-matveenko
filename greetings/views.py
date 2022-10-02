@@ -1,7 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
-from core.services.generate_name import generate_name
+from greetings.services.generate_name import generate_name
 
 
 def greetings(request: HttpRequest, name: str | None = None) -> HttpResponse:
