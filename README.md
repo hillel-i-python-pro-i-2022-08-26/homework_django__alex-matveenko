@@ -43,3 +43,11 @@
 **Link "Phone Book"**
 
 * `/phone-book/` - *view phone book with name, phone number and date of birthday*
+
+1) Link `Add user` - *inside link* `Phone Book`
+
+* `/phone-book/add-user/`
+
+2) Link `Search user` - *inside link* `Phone Book`
+
+* `/phone-book/search-user/` - *you can enter phone number or user ID and see info about him*
