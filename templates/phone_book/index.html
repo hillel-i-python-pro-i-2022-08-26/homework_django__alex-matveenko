@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Phone Book</h1>
+
+    {% for contact in contacts %}
+        <p>Имя: {{ contact.name }}.</p>
+        <p>Контакты: {{ contact.phone }}</p>
+        <p>Дата рождения: {{ contact.birthday_date|date:"d.m.Y" }}</p>
+        <hr>
+    {% endfor %}
+
+{% endblock %}
