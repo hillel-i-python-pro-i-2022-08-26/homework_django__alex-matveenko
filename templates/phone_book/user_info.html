@@ -2,12 +2,14 @@
 
 {% block content %}
 
+    {% include 'phone_book/helpers/_users_navigation.html' %}
+
     <h1>{{ title }}</h1>
 
     <p>Name: {{ user.name }}.</p>
     <p>Phone number: {{ user.phone }}</p>
     <p>Date of birthday: {{ user.birthday_date|date:"d.m.Y" }}</p>
     <hr>
-
+    <a href="{% url 'phone_book:user_search' %}"><- Back to search</a>
 
 {% endblock %}
