@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 
 from phone_book.forms import AddUserForm
@@ -18,16 +18,25 @@ def show_contacts(request: HttpRequest) -> HttpResponse:
     )
 
 
-def add_user(request: HttpRequest) -> HttpResponse:
+def add_user(request: HttpRequest) -> HttpResponse | HttpResponseRedirect:
+    contact = PhoneBook.objects.all()
     if request.method == "POST":
         form = AddUserForm(request.POST)
         if form.is_valid():
-            form.save()
+            contact = form.save()
+            contact.save()
             messages.success(request, "User has been created successfully.")
-            return redirect("phone_book:index")
+            return redirect("phone_book:user", pk=contact.pk)
     else:
         form = AddUserForm()
-    return render(request, "phone_book/add_user.html", {"title": "Add User", "form": form})
+    return render(
+        request,
+        "phone_book/add_user.html",
+        {
+            "title": "Add User",
+            "form": form,
+        },
+    )
 
 
 def search_user_info(request: HttpRequest) -> HttpResponse:
@@ -40,7 +49,7 @@ def search_user_info(request: HttpRequest) -> HttpResponse:
     )
 
 
-def show_user_info(request: HttpRequest) -> HttpResponse:
+def show_user_search(request: HttpRequest) -> HttpResponse:
     query = request.GET.get("q")
 
     if query.startswith("0"):
@@ -64,14 +73,26 @@ def delete_user(request: HttpRequest, pk: PhoneBook.pk) -> HttpResponse:
     return redirect("phone_book:index")
 
 
-def update_user_info(request: HttpRequest, pk: PhoneBook.pk) -> HttpResponse:
+def update_user_info(request: HttpRequest, pk: PhoneBook.pk) -> HttpResponse | HttpResponseRedirect:
     contact = get_object_or_404(PhoneBook, pk=pk)
     if request.method == "POST":
         form = AddUserForm(request.POST, instance=contact)
         if form.is_valid():
             form.save()
             messages.success(request, "User has been updated successfully.")
-            return redirect("phone_book:index")
+            return redirect("phone_book:user", pk=pk)
         else:
             form = AddUserForm(instance=contact)
         return render(request, "phone_book/update_user.html", {"title": "Update User", "form": form})
+
+
+def show_user_info(request: HttpRequest, pk: PhoneBook.pk) -> HttpResponse:
+    contact = get_object_or_404(PhoneBook, pk=pk)
+    return render(
+        request,
+        "phone_book/user.html",
+        {
+            "title": f"Info {contact.name}.",
+            "contact": contact,
+        },
+    )
