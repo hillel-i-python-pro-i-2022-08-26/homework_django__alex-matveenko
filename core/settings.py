@@ -122,4 +122,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 DATE_INPUT_FORMATS = [
     "%d-%m-%Y",
     "%d.%m.%Y",
+    "%Y-%m-%d",
+    "%Y-%d-%m",
 ]

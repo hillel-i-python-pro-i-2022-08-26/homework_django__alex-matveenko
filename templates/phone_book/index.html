@@ -11,7 +11,8 @@
         <p>Phone number: {{ contact.phone }}</p>
         <p>Date of birthday: {{ contact.birthday_date|date:"d.m.Y" }}</p>
 
-        {% include 'phone_book/delete_user.html' %}
+        {% include 'phone_book/helpers/_update_button.html' %}
+        {% include 'phone_book/helpers/_delete_button.html' %}
         <hr>
     {% endfor %}
 

@@ -23,7 +23,7 @@ def add_user(request: HttpRequest) -> HttpResponse:
         form = AddUserForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'User has been created successfully.')
+            messages.success(request, "User has been created successfully.")
             return redirect("phone_book:index")
     else:
         form = AddUserForm()
@@ -57,8 +57,21 @@ def show_user_info(request: HttpRequest) -> HttpResponse:
     )
 
 
-def delete_user(request, pk: PhoneBook.pk) -> HttpResponse:
+def delete_user(request: HttpRequest, pk: PhoneBook.pk) -> HttpResponse:
     contact = get_object_or_404(PhoneBook, pk=pk)
     contact.delete()
-    messages.success(request, f'User {contact.name} deleted.')
-    return redirect('phone_book:index')
+    messages.success(request, f"User {contact.name} deleted.")
+    return redirect("phone_book:index")
+
+
+def update_user_info(request: HttpRequest, pk: PhoneBook.pk) -> HttpResponse:
+    contact = get_object_or_404(PhoneBook, pk=pk)
+    if request.method == "POST":
+        form = AddUserForm(request.POST, instance=contact)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "User has been updated successfully.")
+            return redirect("phone_book:index")
+        else:
+            form = AddUserForm(instance=contact)
+        return render(request, "phone_book/update_user.html", {"title": "Update User", "form": form})

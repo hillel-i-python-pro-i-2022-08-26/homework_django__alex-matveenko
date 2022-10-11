@@ -53,3 +53,4 @@
 * `/phone-book/search-user/` - *you can enter phone number or user ID and see info about him*
 
 3) Button `Delete user` - *delete user*
+4) Button `Update user` - *updater user info*
