@@ -19,7 +19,6 @@ def show_contacts(request: HttpRequest) -> HttpResponse:
 
 
 def add_user(request: HttpRequest) -> HttpResponse | HttpResponseRedirect:
-    contact = PhoneBook.objects.all()
     if request.method == "POST":
         form = AddUserForm(request.POST)
         if form.is_valid():
