@@ -51,3 +51,5 @@
 2) Link `Search user` - *inside link* `Phone Book`
 
 * `/phone-book/search-user/` - *you can enter phone number or user ID and see info about him*
+
+3) Button `Delete user` - *delete user*
