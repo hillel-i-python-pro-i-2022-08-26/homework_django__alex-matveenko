@@ -6,9 +6,10 @@
 
     <h1>{{ title }}</h1>
 
-    <p>Name: {{ user.name }}.</p>
-    <p>Phone number: {{ user.phone }}</p>
-    <p>Date of birthday: {{ user.birthday_date|date:"d.m.Y" }}</p>
+    <p>Name: {{ contact.name }}.</p>
+    <p>Phone number: {{ contact.phone }}</p>
+    <p>Date of birthday: {{ contact.birthday_date|date:"d.m.Y" }}</p>
+    {% include 'phone_book/delete_user.html' %}
     <hr>
     <a href="{% url 'phone_book:user_search' %}"><- Back to search</a>
 
