@@ -7,6 +7,9 @@ from django.shortcuts import render
 
 def get_session_info(request: WSGIRequest | HttpRequest) -> HttpResponse:
     session = request.session
+    if not session.session_key:
+        session.save()
+
     # Set_session_info__start
     time_of_visit = session.get("time_of_visit", datetime.datetime.now())
     count_of_visits = session.get("count", 0)
