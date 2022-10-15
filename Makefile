@@ -22,4 +22,4 @@ pre-commit-run-all:
 # Init superuser (admin)
 .PHONY: init-dev-i-create-superuser
 init-dev-i-create-superuser:
-	@DJANGO_SUPERUSER_PASSWORD=admin123 python manage.py createsuperuser --user admin --email admin@gmail.com --no-input
+	@DJANGO_SUPERUSER_PASSWORD=admin1234 python manage.py createsuperuser --user admin1 --email admin@gmail.com --no-input
