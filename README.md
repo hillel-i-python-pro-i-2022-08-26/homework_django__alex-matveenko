@@ -12,6 +12,7 @@
 * **Base**
 * **users_generator**
 * **phone_book**
+* **session_app**
 
 ### Main commands:
 
@@ -54,3 +55,11 @@
 
 3) Button `Delete user` - *delete user*
 4) Button `Update user` - *updater user info*
+
+**Link "Session Info"**
+
+* `/session/` - *view user session info*
+
+1) View session ID (use uuid4)
+2) View number of visits
+3) View last time of user visit
