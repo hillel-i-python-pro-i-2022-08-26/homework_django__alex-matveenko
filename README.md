@@ -60,6 +60,6 @@
 
 * `/session/` - *view user session info*
 
-1) View session ID (use uuid4)
+1) View session key
 2) View number of visits
 3) View last time of user visit
