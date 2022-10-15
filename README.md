@@ -23,6 +23,7 @@
   is_auto_generated field in model to False*
 * `python manage.py delete_info` - *delete auto generate users info*
 * `python manage.py delete_info --all` - *delete ALL users info*
+* `make init-dev-i-create-superuser` - *create superuser for admin access*
 
 ### Main routes:
 
@@ -54,3 +55,7 @@
 
 3) Button `Delete user` - *delete user*
 4) Button `Update user` - *updater user info*
+
+### Admin route:
+
+* `/admin/` - *route for admin panel* (username: admin1, pas: admin1234)
