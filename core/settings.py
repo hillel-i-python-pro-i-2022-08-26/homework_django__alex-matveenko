@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "greetings.apps.GreetingsConfig",
     "users_generator.apps.UsersGeneratorConfig",
     "base.apps.BaseConfig",
+    "phone_book.apps.PhoneBookConfig",
 ]
 
 MIDDLEWARE = [
