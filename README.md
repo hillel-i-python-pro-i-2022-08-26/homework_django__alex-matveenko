@@ -24,7 +24,8 @@
   is_auto_generated field in model to False*
 * `python manage.py delete_info` - *delete auto generate users info*
 * `python manage.py delete_info --all` - *delete ALL users info*
-
+* `make d-homework-i-run` - *start project in docker*
+* `d-homework-i-purge` - *make all actions needed for purge homework related data.*
 ### Main routes:
 
 **Link "Home"**
