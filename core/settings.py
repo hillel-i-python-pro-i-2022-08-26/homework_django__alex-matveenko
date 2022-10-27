@@ -24,7 +24,13 @@ SECRET_KEY = "django-insecure-g(m)%8=7!o9_dl()r@b873ufk73cr==)_h3te2d_qipxkl++9k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = []
+if DEBUG:
+    ALLOWED_HOSTS.extend(
+        [
+            "0.0.0.0",
+        ]
+    )
 
 # Application definition
 
@@ -42,7 +48,7 @@ INSTALLED_APPS = [
     "phone_book.apps.PhoneBookConfig",
     "admin_users",
     "session_app.apps.SessionAppConfig",
-    # Local_apps__start
+    # Local_apps__stop
 ]
 
 MIDDLEWARE = [
@@ -83,7 +89,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": BASE_DIR.joinpath("db", "db.sqlite3"),
     }
 }
 
