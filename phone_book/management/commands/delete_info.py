@@ -25,11 +25,11 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        amount_of_user_info = models.Contacts.objects.all().count()
+        amount_of_user_info = models.Contact.objects.all().count()
         self.logger.info(f"Now amount of users is: {amount_of_user_info}")
 
         if options['all']:
-            all_info = models.Contacts.objects.all()
+            all_info = models.Contact.objects.all()
             answer = input('You try to delete ALL users, are you sure? Y/n \n')
             if answer == 'Y':
                 all_info.delete()
@@ -38,7 +38,7 @@ class Command(BaseCommand):
             unique_contact = set()
             count_duplicates = 1
 
-            contacts = models.Contacts.objects.all()
+            contacts = models.Contact.objects.all()
 
             for contact in contacts:
                 if contact.name in unique_contact:
@@ -47,13 +47,13 @@ class Command(BaseCommand):
                     contact.delete()
                 unique_contact.add(contact.name)
 
-        db_query = models.Contacts.objects.filter(is_auto_generated=True)
+        db_query = models.Contact.objects.filter(is_auto_generated=True)
         db_query.delete()
 
-        number_after_deleting = models.Contacts.objects.all().count()
+        number_after_deleting = models.Contact.objects.all().count()
         deleted_amount_of_users = amount_of_user_info - number_after_deleting
 
         self.logger.info(f"Delete {deleted_amount_of_users} of users info.")
 
-        number_after_deleting = models.Contacts.objects.all().count()
+        number_after_deleting = models.Contact.objects.all().count()
         self.logger.info(f"Current amount of users info is: {number_after_deleting}")
