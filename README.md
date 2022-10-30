@@ -23,7 +23,7 @@
   is_auto_generated field in model to False*
 * `python manage.py delete_info` - *delete auto generate users info*
 * `python manage.py delete_info --all` - *delete ALL users info*
-* `python manage.py delete_info --duplicate or -d` - *delete duplicate names in db*
+* `python manage.py delete_info --duplicate` - *delete duplicate names in db*
 
 ### Main routes:
 
