@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class PhoneBook(models.Model):
+class Contacts(models.Model):
     name = models.CharField(max_length=255)
     phone = models.SlugField(max_length=100)
     birthday_date = models.DateField()
