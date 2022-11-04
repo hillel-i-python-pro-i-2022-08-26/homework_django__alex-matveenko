@@ -36,12 +36,12 @@ COPY --chown=${USER} ./greetings greetings
 COPY --chown=${USER} ./phone_book phone_book
 COPY --chown=${USER} ./users_generator users_generator
 COPY --chown=${USER} ./session_app session_app
-COPY --chown=${USER} ./templates templates
 # Copy_apps__stop
 
-# Copy_templates__start
+# Copy_visual__start
 COPY --chown=${USER} ./templates templates
-# Copy_templates__stop
+COPY --chown=${USER} ./static static
+# Copy_visual__stop
 
 USER ${USER}
 
