@@ -48,7 +48,13 @@ INSTALLED_APPS = [
     "admin_users",
     "session_app.apps.SessionAppConfig",
     # Local_apps__stop
+
+    # Outside_apps_start
+    'crispy_forms',
+    # Outside_apps_stop
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -132,10 +138,17 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+STATICFILES_DIRS = [
+    BASE_DIR.joinpath("static"),
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 DATE_INPUT_FORMATS = [
     "%d-%m-%Y",
     "%d.%m.%Y",

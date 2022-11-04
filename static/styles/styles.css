@@ -1,0 +1,29 @@
+img, .main-logo {
+    width: 4em;
+    height: 4em;
+}
+
+.main-logo > img {
+    width: 4em;
+    height: 4em;
+}
+
+.my-header {
+    display: flex;
+    flex-flow: row;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-form {
+    margin: 1em;
+}
+
+.edit-form {
+    margin: 1em;
+}
+
+.btn-primary {
+    margin: .3em;
+}

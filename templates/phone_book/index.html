@@ -7,15 +7,22 @@
     <h1>{{ title }}</h1>
 
     {% for contact in contacts %}
-        <p>Name: {{ contact.name }}.</p>
-        <p>Phone number: {{ contact.phone }}</p>
-        <p>Date of birthday: {{ contact.birthday_date|date:"d.m.Y" }}</p>
 
-        <p><a href="{% url 'phone_book:user' contact.pk %}">Reed more</a></p>
+        <div class="card">
+            <div class="card-header">
+                <p>Name: {{ contact.name }}.</p>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Date of birthday: {{ contact.birthday_date|date:"d.m.Y" }}</h5>
+                <p class="card-text">Phone number: {{ contact.phone }}</p>
+                <a href="{% url 'phone_book:user' contact.pk %}" class="btn btn-primary">Reed more</a>
+                {% include 'phone_book/helpers/_update_button.html' %}
+                {% include 'phone_book/helpers/_delete_button.html' %}
+            </div>
+        </div>
 
-        {% include 'phone_book/helpers/_update_button.html' %}
-        {% include 'phone_book/helpers/_delete_button.html' %}
-        <hr>
     {% endfor %}
 
 {% endblock %}
+
+
