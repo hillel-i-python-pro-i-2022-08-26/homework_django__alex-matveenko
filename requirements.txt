@@ -18,3 +18,9 @@ psycopg2-binary==2.9.5
 
 # Install for form visualisation
 django-crispy-forms==1.14.0
+
+# Install for hide path of user avatar
+python-ulid==1.1.0
+
+# Istall to upload media
+pillow==9.3.0
