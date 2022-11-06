@@ -27,3 +27,11 @@ img, .main-logo {
 .btn-primary {
     margin: .3em;
 }
+
+.contact-avatar {
+    max-width: 3em;
+}
+
+.card-img-top {
+    max-width: 4em;
+}
