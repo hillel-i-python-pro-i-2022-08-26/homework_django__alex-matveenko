@@ -2,10 +2,17 @@
 
 <h1>{{ title }}</h1>
 
-<p>Name: {{ contact.name }}.</p>
-<p>Phone number: {{ contact.phone }}</p>
-<p>Date of birthday: {{ contact.birthday_date|date:"d.m.Y" }}</p>
-
-{% include 'phone_book/helpers/_update_button.html' %}
-{% include 'phone_book/helpers/_delete_button.html' %}
-<hr>
+<div class="card">
+    <div class="card-header">
+        <p>Name: {{ contact.name }}.</p>
+        {% if contact.avatar %}
+            <img class="contact-avatar" src="{{ contact.avatar.url }}" alt="{{ contact.name }}">
+        {% endif %}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Date of birthday: {{ contact.birthday_date|date:"d.m.Y" }}</h5>
+        <p class="card-text">Phone number: {{ contact.phone }}</p>
+        {% include 'phone_book/helpers/_update_button.html' %}
+        {% include 'phone_book/helpers/_delete_button.html' %}
+    </div>
+</div>
