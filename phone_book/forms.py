@@ -1,11 +1,12 @@
 from django import forms
+from django.conf import settings
 from django.core.exceptions import ValidationError
 
-from core import settings
 from .models import Contact
 
 
 class AddUserForm(forms.ModelForm):
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["birthday_date"].input_formats = settings.DATE_INPUT_FORMATS
@@ -14,7 +15,7 @@ class AddUserForm(forms.ModelForm):
 
     class Meta:
         model = Contact
-        fields = ("name", "phone", "birthday_date")
+        fields = ("name", "phone", "birthday_date", "avatar",)
 
     def clean_phone(self):
         phone = self.cleaned_data["phone"]
