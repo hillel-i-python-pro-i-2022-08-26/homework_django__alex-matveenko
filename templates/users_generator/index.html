@@ -2,10 +2,14 @@
 
 {% block content %}
     <h1>Users</h1>
-    <ol>
+    <ol class="list-group list-group-flush">
+
         {% for user in info %}
-            <li>{{ user }}</li>
-            <hr>
+            <li class="list-group-item">{{ user }}</li>
         {% endfor %}
+
     </ol>
 {% endblock %}
+
+
+

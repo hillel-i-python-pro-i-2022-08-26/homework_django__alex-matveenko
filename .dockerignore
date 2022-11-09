@@ -13,11 +13,12 @@
 
 # Exclude_apps__stop
 
-# Exclude_templates__start
+# Exclude_visual__start
 
 !templates
+!static
 
-# Exclude_templates__stop
+# Exclude_visual__stop
 
 # Exclude_project_files__start
 
