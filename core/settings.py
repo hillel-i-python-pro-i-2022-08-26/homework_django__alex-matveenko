@@ -35,11 +35,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Local_apps__start
     "greetings.apps.GreetingsConfig",
     "users_generator.apps.UsersGeneratorConfig",
     "base.apps.BaseConfig",
     "phone_book.apps.PhoneBookConfig",
     "admin_users",
+    "session_app.apps.SessionAppConfig",
+    # Local_apps__start
 ]
 
 MIDDLEWARE = [
