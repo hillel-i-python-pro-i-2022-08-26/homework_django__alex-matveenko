@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "users_generator.apps.UsersGeneratorConfig",
     "base.apps.BaseConfig",
     "phone_book.apps.PhoneBookConfig",
+    "admin_users",
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "core.urls"
+
+AUTH_USER_MODEL = "admin_users.AdminUser"
 
 TEMPLATES = [
     {
