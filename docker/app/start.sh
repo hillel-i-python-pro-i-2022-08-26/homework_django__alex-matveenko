@@ -16,4 +16,5 @@ set -o xtrace
 make migrate
 
 # Run application.
+python manage.py generate_info 100
 python manage.py runserver 0.0.0.0:8000
