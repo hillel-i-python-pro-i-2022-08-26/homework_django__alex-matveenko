@@ -30,6 +30,28 @@
 </head>
 <body>
 {% include '_header.html' %}
+{% if user.is_authenticated %}
+    {% if user.avatar %}
+        <div class="card" style="width: 10em;">
+            <div class="user-avatar">
+                <img src="{{ user.avatar.url }}" class="card-img-top" alt="{{ user.username }}">
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Hello, {{ user.username }}
+                </p>
+            </div>
+        </div>
+    {% else %}
+        <p>Hello, {{ user.username }}</p>
+    {% endif %}
+
+    <a href="{% url 'logout' %}">Log out</a>
+{% else %}
+    <p>You are not logged in.</p>
+    <a href="{% url 'login' %}">Log In</a>
+    <a href="{% url 'account:signup' %}">Registration</a>
+{% endif %}
 {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -43,3 +65,5 @@
 {% endblock %}
 </body>
 </html>
+
+

@@ -1,3 +1,4 @@
+
 img, .main-logo {
     width: 4em;
     height: 4em;
@@ -29,9 +30,16 @@ img, .main-logo {
 }
 
 .contact-avatar {
-    max-width: 3em;
+    max-width: 4em;
 }
 
 .card-img-top {
-    max-width: 4em;
+    max-width: 3em;
+}
+
+.user-avatar {
+    width: 3em;
+    height: 3em;
+    margin: 1em auto;
+    z-index: 100;
 }
