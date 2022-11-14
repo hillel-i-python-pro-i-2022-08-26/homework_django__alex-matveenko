@@ -33,9 +33,7 @@
 {% if user.is_authenticated %}
     {% if user.avatar %}
         <div class="card" style="width: 10em;">
-            <div class="user-avatar">
-                <img src="{{ user.avatar.url }}" class="card-img-top" alt="{{ user.username }}">
-            </div>
+            <img src="{{ user.avatar.url }}" class="user-avatar" alt="{{ user.username }}">
             <div class="card-body">
                 <p class="card-text">
                     Hello, {{ user.username }}
