@@ -1,6 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views.generic import UpdateView, CreateView, ListView, DeleteView, TemplateView
 
 from phone_book.models import Contact
@@ -12,15 +14,21 @@ class ContactListView(ListView):
 
 class ContactCreateView(CreateView):
     model = Contact
-    fields = ("name", "phone", "birthday_date", "avatar",)
+    fields = (
+        "name",
+        "phone",
+        "birthday_date",
+        "avatar",
+    )
 
     def get_success_url(self):
-        return reverse_lazy('phone_book:user', kwargs={'pk': self.object.pk})
+        return reverse_lazy("phone_book:user", kwargs={"pk": self.object.pk})
 
 
+@method_decorator(login_required, name='post')
 class ContactDeleteView(DeleteView):
     model = Contact
-    success_url = reverse_lazy('phone_book:index')
+    success_url = reverse_lazy("phone_book:index")
 
 
 class ContactView(TemplateView):
@@ -29,19 +37,25 @@ class ContactView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         contact = Contact.objects.get(pk=context["pk"])
-        context['contact'] = contact
-        context['title'] = f"Info {contact.name}."
+        context["contact"] = contact
+        context["title"] = f"Info {contact.name}."
         return context
 
 
+@method_decorator(login_required, name='post')
 class ContactUpdateView(UpdateView):
     model = Contact
-    fields = ("name", "phone", "birthday_date", "avatar",)
-    template_name_suffix = '_update_form'
+    fields = (
+        "name",
+        "phone",
+        "birthday_date",
+        "avatar",
+    )
+    template_name_suffix = "_update_form"
 
     def get_success_url(self):
-        contact_pk = self.kwargs['pk']
-        return reverse_lazy('phone_book:user', kwargs={'pk': contact_pk})
+        contact_pk = self.kwargs["pk"]
+        return reverse_lazy("phone_book:user", kwargs={"pk": contact_pk})
 
 
 def search_user_info(request: HttpRequest) -> HttpResponse:

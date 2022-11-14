@@ -47,14 +47,14 @@ INSTALLED_APPS = [
     "phone_book.apps.PhoneBookConfig",
     "admin_users",
     "session_app.apps.SessionAppConfig",
+    "accounts.apps.AccountsConfig",
     # Local_apps__stop
-
     # Outside_apps_start
-    'crispy_forms',
+    "crispy_forms",
     # Outside_apps_stop
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -159,3 +159,6 @@ DATE_INPUT_FORMATS = [
     "%Y-%m-%d",
     "%Y-%d-%m",
 ]
+
+LOGIN_REDIRECT_URL = "base:index"
+LOGOUT_REDIRECT_URL = "base:index"

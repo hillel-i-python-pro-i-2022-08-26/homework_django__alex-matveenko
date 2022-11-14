@@ -13,6 +13,7 @@
 * **users_generator**
 * **phone_book**
 * **session_app**
+* **accounts**
 
 ### Main commands:
 
@@ -27,6 +28,7 @@
 * `make d-homework-i-run` - *start project in docker*
 * `make d-homework-i-purge` - *make all actions needed for purge homework related data.*
 * `make d-run-i-local-run` - *run postgres locally*
+
 ### Main routes:
 
 **Link "Home"**
@@ -55,8 +57,8 @@
 
 * `/phone-book/search-user/` - *you can enter phone number or user ID and see info about him*
 
-3) Button `Delete user` - *delete user*
-4) Button `Update user` - *updater user info*
+3) Button `Delete user` - *delete user*(login required)
+4) Button `Update user` - *updater user info*(login required, can't confirm updates without log in)
 
 **Link "Session Info"**
 
@@ -65,3 +67,15 @@
 1) View session key
 2) View number of visits
 3) View last time of user visit
+
+**Link `Log In`**
+*`/login/`* - *view log in form*
+
+**Link `Log In`**
+*`/logout/`* - *logout from account*
+
+**Link `Register`**
+*`/accounts/signup/`* - *registration form*
+
+**Link `Edit profile`**
+*`/accounts/edit/<pk>`* - *views if you authorize. here you can edit your profile*
