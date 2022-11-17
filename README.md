@@ -14,6 +14,7 @@
 * **phone_book**
 * **session_app**
 * **accounts**
+* **middlewares**
 
 ### Main commands:
 
@@ -28,6 +29,7 @@
 * `make d-homework-i-run` - *start project in docker*
 * `make d-homework-i-purge` - *make all actions needed for purge homework related data.*
 * `make d-run-i-local-run` - *run postgres locally*
+* `python manage.py delete_session_info -ds or --delete_sessions` - *delete all sessions info from DB*
 
 ### Main routes:
 
@@ -79,3 +81,17 @@
 
 **Link `Edit profile`**
 *`/accounts/edit/<pk>`* - *views if you authorize. here you can edit your profile*
+
+**Link `Middleware`** - *main page of middleware and session info(name it like this to easy understanding)*
+
+1) Link `All info about actions` - *inside link* `Middleware`
+
+* *info about all users sessions, activity and last visit*
+
+2) Link `Info about current session actions` - *inside link* `Middleware`
+
+* *info about current session, activity and last visit*
+
+3) Link `Info about current user actions` - *inside link* `Middleware`
+
+* *info about current user session, activity and last visit*
