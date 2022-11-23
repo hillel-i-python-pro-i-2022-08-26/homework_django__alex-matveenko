@@ -11,6 +11,7 @@
 !users_generator
 !session_app
 !accounts
+!middlewares
 
 # Exclude_apps__stop
 
