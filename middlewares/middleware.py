@@ -4,7 +4,7 @@ from typing import Callable
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponse
 
-from middlewares.models import SessionHandler
+from middlewares.models import VisitHandler
 
 
 class LoggingMiddleware:
@@ -31,19 +31,19 @@ class LoggingMiddleware:
         self.logger.info(f"After - {logger_message}")
         # Get_response__stop
 
-        session_handler = SessionHandler.objects.filter(session_key=session_key)
+        session_handler = VisitHandler.objects.filter(session_key=session_key)
 
         user_session_query = [session_key.get('session_key') for session_key in session_handler.values()]
         user_path_query = [path.get('path') for path in session_handler.values()]
 
         if session_key in user_session_query and request.path in user_path_query:
-            user_session = SessionHandler.objects.get(
+            user_session = VisitHandler.objects.get(
                 session_key=session_key,
                 path=request.path,
             )
             count_of_visits = user_session.count_of_visits
         else:
-            user_session = SessionHandler()
+            user_session = VisitHandler()
             count_of_visits = 0
 
         if request.user.is_authenticated:

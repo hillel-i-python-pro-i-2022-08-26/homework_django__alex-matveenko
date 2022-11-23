@@ -3,7 +3,7 @@ from django.contrib import admin
 from . import models
 
 
-@admin.register(models.SessionHandler)
+@admin.register(models.VisitHandler)
 class PhoneBookAdmin(admin.ModelAdmin):
     list_display = ("session_key", "path", "count_of_visits", "user")
     search_fields = (

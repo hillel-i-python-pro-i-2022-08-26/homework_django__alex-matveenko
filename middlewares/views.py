@@ -1,7 +1,7 @@
 from django.db.models import Count, Sum
 from django.views.generic import TemplateView, ListView
 
-from middlewares.models import SessionHandler
+from middlewares.models import VisitHandler
 
 
 class MiddlewareView(TemplateView):
@@ -14,14 +14,14 @@ class MiddlewareView(TemplateView):
 
 
 class AllInfoViews(ListView):
-    model = SessionHandler
+    model = VisitHandler
     template_name = "middlewares/sessions_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "All session info"
         # Get_useful_info__start
-        session_handler = SessionHandler.objects.all()
+        session_handler = VisitHandler.objects.all()
         total_visits = session_handler.aggregate(Sum('count_of_visits'))
         total_pages = session_handler.aggregate(Count('path'))
         # Get_useful_info__stop
@@ -32,14 +32,14 @@ class AllInfoViews(ListView):
 
 
 class CurrentSessionInfoViews(ListView):
-    model = SessionHandler
+    model = VisitHandler
     template_name = "middlewares/current_sessions_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Current session info"
         # Get_useful_info__start
-        session_handler = SessionHandler.objects.filter(session_key=self.kwargs['session_key'])
+        session_handler = VisitHandler.objects.filter(session_key=self.kwargs['session_key'])
         total_visits = session_handler.aggregate(Sum('count_of_visits'))
         total_pages = session_handler.aggregate(Count('path'))
         # Get_useful_info__stop
@@ -50,14 +50,14 @@ class CurrentSessionInfoViews(ListView):
 
 
 class CurrentUserInfoViews(ListView):
-    model = SessionHandler
+    model = VisitHandler
     template_name = "middlewares/current_user_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Current user session info"
         # Get_useful_info__start
-        session_handler = SessionHandler.objects.filter(user=self.kwargs['pk'])
+        session_handler = VisitHandler.objects.filter(user=self.kwargs['pk'])
         total_visits = session_handler.aggregate(Sum('count_of_visits'))
         total_pages = session_handler.aggregate(Count('path'))
         # Get_useful_info__stop
