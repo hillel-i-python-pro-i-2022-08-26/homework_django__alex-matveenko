@@ -34,21 +34,20 @@ class LoggingMiddleware:
         visit_handler = VisitHandler.objects.filter(session_key=session_key, path=request.path).first()
 
         if visit_handler is not None:
-            user_visit = visit_handler
-            count_of_visits = user_visit.count_of_visits
+            count_of_visits = visit_handler.count_of_visits
         else:
-            user_visit = VisitHandler()
+            visit_handler = VisitHandler()
             count_of_visits = 0
             if request.user.is_authenticated:
-                user_visit.user = request.user
+                visit_handler.user = request.user
 
-            user_visit.path = request.path
-            user_visit.session_key = session_key
+            visit_handler.path = request.path
+            visit_handler.session_key = session_key
 
         count_of_visits += 1
         session['count'] = count_of_visits
-        user_visit.count_of_visits = session['count']
+        visit_handler.count_of_visits = session['count']
 
-        user_visit.save()
+        visit_handler.save()
 
         return response
