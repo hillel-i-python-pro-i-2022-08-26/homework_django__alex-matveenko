@@ -20,7 +20,6 @@ class LoggingMiddleware:
         if not session.session_key:
             session.save()
         session_key = session.session_key
-        count_of_visits = session.get("count", 0)
         # Get_user_session__stop
 
         logger_message = f"Path:{request.path} - User:{request.user} - Session:{session_key}"
