@@ -1,7 +1,9 @@
-from django.db.models import Sum, Count
+from django.db.models import Sum, Count, QuerySet
+
+from middlewares.services.types import CONTEXT_DATA
 
 
-def aggregator(queryset):
+def aggregator(queryset: QuerySet) -> CONTEXT_DATA:
     total_visits = queryset.aggregate(Sum('count_of_visits')).get('count_of_visits__sum')
     total_pages = queryset.aggregate(Count('path')).get('path__count')
     return {
