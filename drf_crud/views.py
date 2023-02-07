@@ -1,5 +1,4 @@
 from rest_framework import viewsets, permissions, generics
-from rest_framework.permissions import IsAdminUser
 
 from drf_crud.serializers import ContactSerializer
 from phone_book.models import Contact
