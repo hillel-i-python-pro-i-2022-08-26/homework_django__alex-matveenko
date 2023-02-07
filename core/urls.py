@@ -18,6 +18,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from drf_crud.urls import router
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
@@ -28,6 +30,8 @@ urlpatterns = [
     path("phone-book/", include("phone_book.urls")),
     path("session/", include("session_app.urls")),
     path("middleware/", include("middlewares.urls")),
+    path("api/v1/", include(router.urls)),
+    path("api/v1/", include("drf_crud.urls")),
 ]
 
 if settings.DEBUG:

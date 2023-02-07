@@ -15,6 +15,7 @@
 * **session_app**
 * **accounts**
 * **middlewares**
+* **drf_crud**
 
 ### Main commands:
 
@@ -95,3 +96,11 @@
 3) Link `Info about current user actions` - *inside link* `Middleware`
 
 * *info about current user session, activity and last visit*
+
+**API Links `Edit profile`**
+
+1) `api/v1/contacts/` - *list all contacts as API* (require auth)
+2) `api/v1/create/` - *API endpoint to create contact* (require auth)
+3) `api/v1/show/contact_pk` - *API endpoint to show one contact* (require auth)
+4) `api/v1/update/contact_pk` - *API endpoint to update one contact* (require auth)
+5) `api/v1/delete/contact_pk` - *API endpoint to delete one contact* (require auth)
