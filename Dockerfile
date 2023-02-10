@@ -38,6 +38,7 @@ COPY --chown=${USER} ./users_generator users_generator
 COPY --chown=${USER} ./session_app session_app
 COPY --chown=${USER} ./accounts accounts
 COPY --chown=${USER} ./middlewares middlewares
+COPY --chown=${USER} ./drf_crud drf_crud
 # Copy_apps__stop
 
 # Copy_visual__start

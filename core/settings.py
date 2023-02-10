@@ -49,9 +49,11 @@ INSTALLED_APPS = [
     "session_app.apps.SessionAppConfig",
     "accounts.apps.AccountsConfig",
     "middlewares.apps.MiddlewaresConfig",
+    "drf_crud.apps.DrfCrudConfig",
     # Local_apps__stop
     # Outside_apps_start
     "crispy_forms",
+    "rest_framework",
     # Outside_apps_stop
 ]
 
@@ -172,3 +174,8 @@ DATE_INPUT_FORMATS = [
 
 LOGIN_REDIRECT_URL = "base:index"
 LOGOUT_REDIRECT_URL = "base:index"
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}

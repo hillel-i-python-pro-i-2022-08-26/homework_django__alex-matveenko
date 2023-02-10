@@ -12,6 +12,7 @@
 !session_app
 !accounts
 !middlewares
+!drf_crud
 
 # Exclude_apps__stop
 
@@ -27,6 +28,7 @@
 !manage.py
 !Makefile
 !requirements.txt
-!docker/app
+!docker/app/entrypoint.sh
+!docker/app/start.sh
 
-Exclude_project_files__stop
+# Exclude_project_files__stop
